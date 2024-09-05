@@ -1,0 +1,55 @@
+{% extends 'core/base/base.html' %}
+
+{% load static %}
+
+{% block title %} Home page {% endblock %}
+
+{% block content %}
+
+{% include 'core/base/navbar.html' %}      
+
+    
+    <section class="doctor-section section">
+
+            <h1>Contact <span>Our</span></h1>
+                <!-- Swiper -->
+            <div class="map">
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.2558254322917!2d11.354607474851932!3d8.948557990243344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10f92a6d27bf2b03%3A0x7520d1f5b7e80415!2sNOBIS%20Eye%20Centre!5e0!3m2!1sen!2sng!4v1696454810175!5m2!1sen!2sng"
+                 width="600" height="450" style="border:0;" allowfullscreen="" 
+                 loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="get">
+                <div class="get__left">
+                    <h2>Get in Touch</h2>
+                    <p>Nobis Eye Center Jalingo, Taraba State</p>
+                    <h3>Contact info</h3>
+                    <a href="#"><i class="fas fa-envelope"></i> info@nobiseye.ng</a>
+                    <a href="#"><i class="fas fa-phone"></i> +2347039627780</a>
+                    <a href="#"><i class="fas fa-phone"></i> +2347039627780</a>
+                    <a href="#"><i class="fab fa-telegram"></i> +2347039627780</a>
+                </div>
+                <div class="get__right">
+                    <h2>Contact<span> Us</span></h2>
+                    <div class="get__form">
+                        <form action="" method="POST">
+                            <input type="text" name="usename" placeholder="you name">
+                            <input type="text" name="email" placeholder="you email">
+                            <input type="text" name="password" placeholder="password">
+                            <input type="text" name="phone_number" placeholder="Telephone Numer">
+                            <textarea name="comment" placeholder="message" id="" cols="30" rows="10"></textarea>
+                            <label for="checkbox">Save my name, email, and website in this browser for the next time I comment.</label>
+                            <input type="checkbox" name="check" id="">
+                            
+                            <button class="hero-btn" type="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       {% include 'core/base/footer.html' %}
+
+{% endblock %}

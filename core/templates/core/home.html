@@ -1,0 +1,269 @@
+{% extends 'core/base/base.html' %}
+
+{% load static %}
+
+{% block title %} Home page {% endblock %}
+
+{% block content %}
+
+{% include 'core/base/navbar.html' %}
+
+        <div class="home">
+            <div class="home-back">
+                <img src="{% static 'images/body.png' %}" alt="illustration">
+            </div>
+            <div class="main-home">
+                <div class="main-inner-home">
+                    <h2>We Are Providing</h2>
+                    <h1>Best Medical Services</h1>
+                    <p>In honour of our anniversary celebration and World Sight Day
+                         2022, we will be having a free eye care outreach
+                         and rally on 13th October 2022 in Jalingo, Taraba State.</p>
+                        
+                        <div class="ripple">
+                            <a href="" class="play" aria-hidden="true" onClick="toggleVideo();"
+                            ><i class="fas fa-play"></i></a>
+                        </div>
+                        
+
+                </div>
+                <div class="main-inner-home">
+                    <div class="right-content">
+                        <img src="{% static 'images/no-bg2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trailer">
+            <video src="{% static 'video/nobis-video.mp4' %}"
+            muted
+            controls="true"
+            autoplay="true"
+            ></video>
+            <i class="fas fa-close close"
+            onClick="toggleVideo();"
+            ></i>
+        </div>
+
+        <section class="services">
+            <div class="service-heading">
+                <h1>
+                    Our
+                    <span>Services</span>
+                </h1>
+            </div>
+
+            <div class="main-services">
+
+                {% for service in services %}
+                    <div class="main-inner-services">
+                        <div class="services-img">
+                        <img src="{{ service.image.url }}" alt="">
+                        </div> 
+                        <div class="services-content">
+                        <h2>{{service.title|title}}</h2>
+                        <p> {{ service.body|truncatewords:25 }} </p>
+                        <a href="{{service.get_absolute_url}}">Read More</a>
+                        </div>
+                    </div>
+                 {% endfor %}
+             
+            </div>
+        </section>
+
+        <section class="appointment">
+            <div class="heading-appointment">
+                <h1>Make <span>Appointment</span></h1>
+            </div>
+
+            <div class="main-appointment">
+                <div class="main-inner-appointment">
+                    <img src="{% static 'images/img2.jpg' %}" alt="">
+                </div>
+                <div class="main-inner-appointment">
+                    <div class="right-appointment-content">
+                        <h2>
+                            A Great Place to work and recieve Care. <span>Leading Medicine.</span>
+                        </h2>
+                        <p>Lorem Ipsum dolor sit amet consectior adpisicing alit.
+                            I was working and there was this German woman who was 
+                            there, she looked at me and said -Dr Avar, your hands 
+                            are good for eye surgery. And I looked at my hands 
+                            and didn't see any meaning in what she said to me.
+                        </p>
+                        <a href="{% url 'book' %}">Make Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-experts">
+
+            <div class="expert-heading">
+                <h1>Meet <span>Our</span> Expert</h1>
+
+                <!-- swiper body -->
+
+                <!-- Swiper -->
+                
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        {% for doctor in doctors %}
+                    <div class="swiper-slide">
+                        <div class="swiper-image">
+                            <img src="{{doctor.photo.url}}" alt="experts">
+                            <div class="image-content">
+                                <h2>Dr. {{doctor.expert}}</h2>
+                                    <div class="social-media">
+                                        <i class="fab fa-facebook"></i>
+                                        <i class="fab fa-twitter "></i>
+                                        <i class="fab fa-whatsapp "></i>
+                                        <i class="fab fa-linkedin "></i>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    
+                </div>
+
+                <a href="{% url 'doctors' %}" class="hero-btn">View More</a>
+
+
+            </div>
+
+        </section>
+
+        <section class="book" id="book">
+
+            <h1 class="heading"> <span>book</span> now </h1>
+
+            <div class="row">
+
+                <div class="image">
+                    <img src="{% static 'images/life.png' %}" alt="">
+                </div>
+
+                <form class="booker" action="" method="POST">
+                    {% csrf_token %}
+                    {{forms}}
+                    <button type="submit"  class="hero-btn">Book Now</button>
+                </form>
+
+            </div>
+
+        </section>
+        
+    <section class="review" id="review">
+        <h1 class="heading">Client's <span>review</span></h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="{% static 'images/review1.jpg' %}" alt="">
+                <h3>Christie Henson</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text">
+                    Lorem Ipsum Dolor Sit Amet Consectior Adpisicing Alit.
+                     I Was Working And There Was This German Woman Who Was 
+                     There, She Looked At Me And Said -Dr Avar, Your Hands 
+                     Are Good For Eye Surgery. 
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/reviews.jpg' %}" alt="">
+                <h3>Asaiah Henson</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text">
+                    Lorem Ipsum Dolor Sit Amet Consectior Adpisicing Alit.
+                     I Was Working And There Was This German Woman Who Was 
+                     There, She Looked At Me And Said -Dr Avar, Your Hands 
+                     Are Good For Eye Surgery. 
+                </p>
+            </div>
+            <div class="box">
+                <img src="{% static 'images/review3.jpg' %}" alt="">
+                <h3>Nehemiah Sarki</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text">
+                    Lorem Ipsum Dolor Sit Amet Consectior Adpisicing Alit.
+                     I Was Working And There Was This German Woman Who Was 
+                     There, She Looked At Me And Said -Dr Avar, Your Hands 
+                     Are Good For Eye Surgery. 
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="comment">
+        <h1>Leave a <span> Comment</span></h1>
+        <div class="comment__form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form}}
+                <p for="checkbox">Save my name, email, and website in this browser for the next time I comment.</p>
+                <input type="checkbox" name="check" id="">
+                
+                <button class="hero-btn" type="submit">submit</button>
+            </form>
+        </div>
+        
+    </section>
+    
+    {% include 'core/base/footer.html' %}
+    
+       {% block style %}
+       <!-- Swiper JS -->
+     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+   
+     <!-- Initialize Swiper -->
+      <script>
+       var swiper = new Swiper(".mySwiper", {
+         slidesPerView: 1,
+         spaceBetween: 10,
+         pagination: {
+           el: ".swiper-pagination",
+           clickable: true,
+         },
+         breakpoints: {
+           640: {
+             slidesPerView: 2,
+             spaceBetween: 20,
+           },
+           768: {
+             slidesPerView: 4,
+             spaceBetween: 40,
+           },
+           1024: {
+             slidesPerView: 5,
+             spaceBetween: 50,
+           },
+         },
+       });
+     </script>
+
+     {% endblock style%}
+    
+    {% endblock %}
+

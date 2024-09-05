@@ -1,0 +1,46 @@
+{% extends 'core/base/base.html' %}
+
+{% load static %}
+
+{% block title %} About page {% endblock %}
+
+{% block content %}
+
+        <section class="staff-login">
+
+            <form action="" method="POST">
+                <h1> Nobis Login Page</h1>
+
+                {% csrf_token %}
+                <div class="input-group">
+                   {{ form.username }}
+                   <label for="username"> <i class="fas fa-user"></i> Username</label>
+                </div>
+
+                <div class="input-group">
+                    {{ form.email }}
+                    <label for="email"> <i class="fas fa-user"></i> Email address</label>
+                </div>
+                
+                <div class="input-group">
+                    {{ form.number }}
+                    <label for="number"> <i class="fas fa-user"></i> Phone No:</label>
+                </div>
+                
+                <div class="input-group">
+                    {{ form.password1 }}
+                    <label for="password1"><i class="fas fa-phone-square-alt"></i> Password </label>
+                </div>
+
+                <div class="input-group">
+                    {{ form.password2 }}
+                    <label for="password2"><i class="fas fa-envelope"></i> Confirm password </label>
+                </div>
+                
+                <p>Already have an account login <a href="{% url 'login' %}">Here</a></p>
+                <button type="submit">Submit </button>
+            </form>
+
+        </section>
+
+        {% endblock %}

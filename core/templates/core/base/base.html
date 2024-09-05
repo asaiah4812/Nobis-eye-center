@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'cs/style.css' %}">
+    <link href="https://api.fontshare.com/v2/css?f[]=poppins@900,201,401,301,500,400,100,300,501,101,800,700,200,600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+
+    {% block content %}
+   
+    {% block style %}{% endblock %}
+     
+    {% endblock %}     
+     
+  
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

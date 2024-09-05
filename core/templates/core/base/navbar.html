@@ -1,0 +1,21 @@
+{% load static %}
+ <header>
+        <div class="logo"><a href="{% url 'home' %}"><img src="{% static 'images/LOGO.svg' %}" alt=""></a></div>
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'doctors' %}">Doctors</a>
+            <a href="{% url 'book' %}">Book</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="staff">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="staff">Staff Login</a>
+            {% endif %}
+        </nav>
+
+        <div class="menu-icons">
+            <div id="menu-bar" class="fas fa-bars"></div>
+            <div id="searchbox" class="fas fa-search"></div>
+        </div>
+    </header> 

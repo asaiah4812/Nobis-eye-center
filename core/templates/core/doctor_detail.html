@@ -1,0 +1,101 @@
+{% extends 'core/base/base.html' %}
+
+{% load static %}
+
+{% block title %} Home page {% endblock %}
+
+{% block content %}
+
+{% include 'core/base/navbar.html' %}
+    <!-- About Doctor -->
+
+    <section class="services padding">
+         <div class="doctor__detail">
+
+                <div class="doctor__left">
+                    <img src="{{doctor.photo.url}}" alt="">
+                    <h3>Dr. {{doctor.expert}}</h3>
+                </div>
+
+                <div class="doctor__center">
+
+                        <h3>{{doctor.position}}</h3>
+                        <a href="home.html"><i class="fas fa-chevron-right"></i>Monday 7:30AM to 8:00PM</a>
+                        <a href="doctors.html"><i class="fas fa-chevron-right"></i>Tuesday 7:30AM to 8:00PM</a>
+                        <a href="book.html"><i class="fas fa-chevron-right"></i>Wednesday 7:30AM to 8:00PM</a>
+                        <a href="about.html"><i class="fas fa-chevron-right"></i>Thursday 7:30AM to 8:00PM</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i>Friday 7:30AM to 8:00PM</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i>Community Services</a>
+
+                </div>
+
+                <div class="doctor__right">
+                    <h3>Dr. {{doctor.expert}}</h3>
+
+                        <p>{{ doctor.detail }}</p>
+                </div>
+
+            </div>
+
+    </section>
+
+    
+    <!-- Make a comment section -->
+    
+    <section class="comment">
+        <h1>Leave a <span> Comment</span></h1>
+        <div class="comment__form">
+            <form action="" method="POST">
+                <input type="text" name="usename" placeholder="you name">
+                <input type="text" name="email" placeholder="you email">
+                <input type="text" name="password" placeholder="password">
+                <textarea name="comment" id="" cols="30" rows="10"></textarea>
+                <label for="checkbox">Save my name, email, and website in this browser for the next time I comment.</label>
+                <input type="checkbox" name="check" id="">
+                
+                <button class="hero-btn" type="submit">submit</button>
+            </form>
+        </div>
+ 
+    </section>
+
+
+
+
+             
+        {% include 'core/base/footer.html' %}
+    
+       {% block style %}
+       <!-- Swiper JS -->
+     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+   
+     <!-- Initialize Swiper -->
+      <script>
+       var swiper = new Swiper(".mySwiper", {
+         slidesPerView: 1,
+         spaceBetween: 10,
+         pagination: {
+           el: ".swiper-pagination",
+           clickable: true,
+         },
+         breakpoints: {
+           640: {
+             slidesPerView: 2,
+             spaceBetween: 20,
+           },
+           768: {
+             slidesPerView: 4,
+             spaceBetween: 40,
+           },
+           1024: {
+             slidesPerView: 5,
+             spaceBetween: 50,
+           },
+         },
+       });
+     </script>
+
+     {% endblock style%}
+    
+    {% endblock %}
+

@@ -1,0 +1,191 @@
+{% extends 'core/base/base.html' %}
+
+{% load static %}
+
+{% block title %} About page {% endblock %}
+
+{% block content %}
+
+{% include 'core/base/navbar.html' %}
+
+
+    <!-- heading background slider -->
+
+<section class="about-slider">
+
+            <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis9.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/img7.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis2.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis3.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis14.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis7.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis6.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis9.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis11.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis10.jpg' %}" alt="Nobis">
+        </div>
+        <div class="swiper-slide">
+            <img  src="{% static 'images/nobis16.jpg' %}" alt="Nobis">
+        </div>
+        </div>
+        <div class="swiper-button-next" style="color: #16d0c0;"></div>
+        <div class="swiper-button-prev" style="color: #16d0c0;"></div>
+        <div class="swiper-pagination"></div>
+        <div class="autoplay-progress">
+        <svg class="bg" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span></span>
+        </div>
+    </div>
+
+    </section>
+
+
+    <!-- about Us Section -->
+
+    <section class="about" id="about">
+
+        <h1 class="heading"> <span>About</span> us</h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="{% static 'images/about-us.png' %}" alt="">
+            </div>
+
+            <div class="content">
+                <h3>We Take care of your healthy life</h3>
+                <p>
+                    The areas of specialization include contact lenses, 
+                    vision therapy, sports vision, ocular disease, geriatrics,
+                     pediatrics, low vision (working with visually impaired 
+                     patients), occupational vision, education and research. 
+                    Optometrists can practice in many different settings.
+                </p>
+                <p>
+                    most students who are working toward a career in optometry 
+                    choose to pursue a major in a basic science such as Biology,
+                     Chemistry, or Physics, applied health majors are also 
+                    common such as Health Science and Exercise Science.
+                </p>
+                
+            </div>
+        </div>
+
+    </section>
+
+    <section class="work">
+        <h2>Our <span> Gallery</span></h2>
+        <div class="container">
+            <div class="slider-wrapper">
+                <div class="image-list">
+                    <img src="{% static 'images/about-us1.png' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/img4.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/img5.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/img6.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/img8.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/img7.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/nobis1.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/nobis3.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/nobis5.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/nobis6.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/nobis9.jpg' %}" alt="nobis eye center" class="image-item">
+                    <img src="{% static 'images/nobis11.jpg' %}" alt="nobis eye center" class="image-item">
+                </div>
+            </div>
+        </div>
+        
+                
+
+    </section>
+
+    <section class="intro">
+        <div>
+            {% if user.is_authenticated %}
+            <marquee behavior="" direction="">HI {{user.username}} WELCOME TO NOBIS EYE CENTER JALINGO WHERE YOU GET THE BEST CARE YOU NEED FOR YOUR EYE ONE OF THE BEST IN THE NORTHEN PART OF NIGERIA </marquee>
+            {% else %}
+            <marquee behavior="" direction="">WELCOME TO NOBIS EYE CENTER JALINGO WHERE YOU GET THE BEST CARE YOU NEED FOR YOUR EYE ONE OF THE BEST IN THE NORTHEN PART OF NIGERIA </marquee>
+            {% endif %}
+        </div>
+    </section>
+    
+    <!-- Make a comment section -->
+    
+    <section class="comment">
+        <h1>Leave a <span> Comment</span></h1>
+        <div class="comment__form">
+            <form action="" method="POST">
+                <input type="text" name="usename" placeholder="you name">
+                <input type="text" name="email" placeholder="you email">
+                <input type="text" name="password" placeholder="password">
+                <textarea name="comment" id="" cols="30" rows="10"></textarea>
+                <label for="checkbox">Save my name, email, and website in this browser for the next time I comment.</label>
+                <input type="checkbox" name="check" id="">
+                
+                <button class="hero-btn" type="submit">submit</button>
+            </form>
+        </div>
+ 
+    </section>
+
+{% include 'core/base/footer.html' %}
+
+{% block style %}
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      on: {
+        autoplayTimeLeft(s, time, progress) {
+          progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+      }
+    });
+  </script>
+{% endblock style%}
+
+
+
+{% endblock %}
